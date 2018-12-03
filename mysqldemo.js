@@ -85,7 +85,13 @@ nodemailer.createTestAccount((err, account) => {
         to: 'foo@example.com', // list of receivers
         subject: 'Hello ✔', // Subject line
         text: 'Hello world?', // plain text body
-        html: templateString // html body
+         html: templateString, // html body
+        attachments: [
+            {   // file on disk as an attachment
+                filename: 'text3.txt',
+                path: templateFile // stream this file
+            },
+        ]
     };
 
     // send mail with defined transport object
